@@ -9,3 +9,35 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Shoe {
+  id          Int       @id @default(autoincrement())
+  size        Int
+  shoeModelId Int
+  userId      Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  shoeModel   ShoeModel @relation(fields: [shoeModelId], references: [id], onDelete: Cascade)
+  shoeOwner   User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ShoeModel {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  shoes     Shoe[]
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  email      String
+  firstName  String
+  lastName   String
+  password   String
+  footHeight Int
+  footWidth  Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  shoes      Shoe[]
+}

@@ -10,7 +10,7 @@ import {
   
   const getShoes = async (req, res) => {
     try {
-        const sortBy = req.query.sortBy || "id";
+        const sortBy = req.query.sortBy || "size";
         const sortOrder = req.query.sortOrder === "desc" ? "desc" : "asc";
         
         const query = {

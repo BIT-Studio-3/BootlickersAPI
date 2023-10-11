@@ -18,8 +18,8 @@ import {
             [sortBy]: sortOrder,
           },
           include: {
-            shoe_model: true,
-            user: true
+            shoeModel: true,
+            shoeOwner: true
           }
         };
     

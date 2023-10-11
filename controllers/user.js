@@ -9,13 +9,39 @@ const createUser = async (req, res) => createResource(req, res, "user");
 
 const getUsers = async (req, res) => {
   try {
-    const users = await prisma.user.findMany();
+    const sortBy = req.query.sortBy || "name" || "email" || "firstName" || "lastName" || "footHeight" || "footWidth" || "id";
+    const sortOrder = req.query.sortOrder === "desc" ? "desc" : "asc";
+
+    const query = {
+      orderBy: {
+        [sortBy]: sortOrder,
+      },
+    };
+    
+    delete req.query.sortBy;
+    delete req.query.sortOrder;
+
+    if (req.query.id) {
+      req.query.id = parseInt(req.query.id);
+    }
+    if (req.query.footHeight) {
+      req.query.footHeight = parseInt(req.query.footHeight);
+    }
+    if (req.query.footWidth) {
+      req.query.footWidth = parseInt(req.query.footWidth);
+    }
+
+    query.where = req.query;
+
+    const users = await prisma.user.findMany(query);
 
     if (users.length === 0) {
       return res.status(404).json({ msg: "No users found" });
     }
 
-    return res.json({ data: users });
+    return res.json({
+      data: users
+    });
   } catch (err) {
     return res.status(500).json({
       msg: err.message,

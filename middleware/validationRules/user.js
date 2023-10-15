@@ -2,19 +2,22 @@ import Joi from "joi";
 
 export default {
     "POST":{
-        email: Joi.string().required().messages({
+        email: Joi.string().required().email().messages({
             //joi validation here
             "string.base":"Email should be a string.",
+            "string.email":"Email should be a valid email address.",
             "any.required":"Email is required."
         }),
-        firstName: Joi.string().required().messages({
+        firstName: Joi.string().min(2).required().messages({
             //joi validation here
             "string.base":"First name should be a string.",
+            "string.min": "First name should have a minimum length of {#limit}",
             "any.required":"First name is required."
         }),
-        lastName: Joi.string().required().messages({
+        lastName: Joi.string().min(2).required().messages({
             //joi validation here
             "string.base":"Last name should be a string.",
+            "string.min": "Last name should have a minimum length of {#limit}",
             "any.required":"Last name is required."
         }),
         password: Joi.string().required().messages({
@@ -36,17 +39,20 @@ export default {
         })
     },
     "PUT":{
-        email: Joi.string().messages({
+        email: Joi.string().email().messages({
             //joi validation here
-            "string.base":"Email should be a string."
+            "string.base":"Email should be a string.",
+            "string.email":"Email should be a valid email address."
         }),
-        firstName: Joi.string().messages({
+        firstName: Joi.string().min(2).messages({
             //joi validation here
-            "string.base":"First name should be a string."
+            "string.base":"First name should be a string.",
+            "string.min": "First name should have a minimum length of {#limit}"
         }),
-        lastName: Joi.string().messages({
+        lastName: Joi.string().min(2).messages({
             //joi validation here
-            "string.base":"Last name should be a string."
+            "string.base":"Last name should be a string.",
+            "string.min": "Last name should have a minimum length of {#limit}"
         }),
         password: Joi.string().messages({
             //joi validation here

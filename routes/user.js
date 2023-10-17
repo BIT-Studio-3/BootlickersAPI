@@ -8,7 +8,7 @@ import {
     deleteUser,
   } from "../controllers/user.js";
   
-  const institutionController = {
+  const userController = {
     get: getUsers,
     getById: getUser,
     create: createUser,
@@ -16,8 +16,8 @@ import {
     delete: deleteUser,
   };
   
-  const institutionRouter = createRouter(
-    institutionController
+  const userRouter = createRouter(
+    userController
   );
   
-  export default institutionRouter;
+  export default userRouter;

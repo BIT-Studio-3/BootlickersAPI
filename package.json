@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "type": "module"
+    "dev": "nodemon index.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BIT-Studio-3/BootlickersAPI.git"
@@ -21,7 +21,8 @@
   "homepage": "https://github.com/BIT-Studio-3/BootlickersAPI#readme",
   "dependencies": {
     "@prisma/client": "^4.16.2",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "joi": "^17.11.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",

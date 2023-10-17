@@ -9,7 +9,7 @@ export default {
         }),
     },
     "PUT":{
-        mystring: Joi.String().messages({
+        mystring: Joi.string().messages({
             //joi valdation here
             "String.base":"example message",
             "any.required":"example message"

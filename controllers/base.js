@@ -1,4 +1,5 @@
-import prisma from "../prisma/prisma.js";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 const capitaliseFirstLetter = (string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
@@ -104,7 +105,6 @@ const deleteResource = async (req, res, model) => {
 
 export {
   createResource,
-  getResources,
   getResource,
   updateResource,
   deleteResource,

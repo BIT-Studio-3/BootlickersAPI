@@ -8,7 +8,8 @@ import {
   deleteResource,
 } from "./base.js";
 
-const createUser = async (req, res) => createResource(req, res, "user");
+const createUser = async (req, res) => {
+  createResource(req, res, "user")};
 
 const getUsers = async (req, res) => {
   try {

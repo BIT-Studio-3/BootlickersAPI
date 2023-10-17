@@ -1,5 +1,5 @@
 // Import the Express module
-import express from 'express';
+import express, {urlencoded, json} from 'express';
 
 import { validateRequests } from "./middleware/validation.js";
 
@@ -12,6 +12,11 @@ import shoeRoutes from "./routes/shoe.js";
 const app = express();
 
 // Create app.use requests here
+
+app.use(urlencoded({ extended: false })); // To parse the incoming requests with urlencoded payloads. For example, form data
+
+app.use(json()); // To parse the incoming requests with JSON payloads. For example, REST API requests
+
 
 app.use("/api/users", validateRequests(), userRoutes);
 app.use("/api/shoes", validateRequests(), shoeRoutes);

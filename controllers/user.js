@@ -9,13 +9,16 @@ const createUser = async (req, res) => createResource(req, res, "user");
 
 const getUsers = async (req, res) => {
   try {
-    const sortBy = req.query.sortBy || "name" || "email" || "firstName" || "lastName" || "footHeight" || "footWidth" || "id";
+    const sortBy = req.query.sortBy || "email" || "firstName" || "lastName" || "footHeight" || "footWidth" || "id";
     const sortOrder = req.query.sortOrder === "desc" ? "desc" : "asc";
 
     const query = {
       orderBy: {
         [sortBy]: sortOrder,
       },
+      include: {
+        shoes: true
+      }
     };
     
     delete req.query.sortBy;

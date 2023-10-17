@@ -1,6 +1,8 @@
 // Import the Express module
 import express from 'express';
 
+import { validateRequests } from "./middleware/validation.js";
+
 // Import routes here
 import userRoutes from "./routes/user.js"
 
@@ -8,7 +10,7 @@ import userRoutes from "./routes/user.js"
 const app = express();
 
 // Create app.use requests here
-app.use("/api/users", userRoutes);
+app.use("/api/users", validateRequests(), userRoutes);
 
 // Start the server on port 3000
 app.listen(3000, () => {

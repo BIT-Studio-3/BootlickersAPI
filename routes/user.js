@@ -8,8 +8,6 @@ import {
     deleteUser,
   } from "../controllers/user.js";
   
-  import validateRequests from "../middleware/validation.js";
-  
   const institutionController = {
     get: getUsers,
     getById: getUser,
@@ -19,8 +17,7 @@ import {
   };
   
   const institutionRouter = createRouter(
-    institutionController,
-    validateRequests
+    institutionController
   );
   
   export default institutionRouter;

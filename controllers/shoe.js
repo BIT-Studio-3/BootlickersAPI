@@ -19,10 +19,6 @@ import {
         const query = {
           orderBy: {
             [sortBy]: sortOrder,
-          },
-          include: {
-            shoeModel: true,
-            shoeOwner: true
           }
         };
     

@@ -7,6 +7,7 @@ import { validateRequests } from "./middleware/validation.js";
 
 import userRoutes from "./routes/user.js";
 import shoeRoutes from "./routes/shoe.js";
+import shoeModelRoutes from "./routes/shoeModel.js";
 
 // Create an Express application
 const app = express();
@@ -20,6 +21,7 @@ app.use(json()); // To parse the incoming requests with JSON payloads. For examp
 
 app.use("/api/users", validateRequests(), userRoutes);
 app.use("/api/shoes", validateRequests(), shoeRoutes);
+app.use("/api/shoemodels", validateRequests(), shoeModelRoutes);
 
 // Start the server on port 3000
 app.listen(3000, () => {

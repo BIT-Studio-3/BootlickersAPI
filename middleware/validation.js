@@ -3,8 +3,9 @@
 import Joi from "joi";
 
 //import validation rules here
-import example from "./validationRules/example.js"
 import user from "./validationRules/user.js"
+import shoe from "./validationRules/shoe.js"
+import shoeModel from "./validationRules/shoeModel.js"
 
 
 export let validateRequests = _ => {
@@ -15,11 +16,13 @@ export let validateRequests = _ => {
     return function (req, res, next) {        
 
         //point to correct validation based on route
-        if(req.originalUrl.indexOf("example") != -1)
-            validationRules = example[req.method]
+        if(req.originalUrl.indexOf("shoe") != -1)
+            validationRules = shoe[req.method]
         // put extra validations here
         else if(req.originalUrl.indexOf("user") != -1)
             validationRules = user[req.method]
+        else if(req.originalUrl.indexOf("shoeModel") != -1)
+            validationRules = shoeModel[req.method]
         
         
         const validationSchema = Joi.object(validationRules)

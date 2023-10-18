@@ -16,13 +16,13 @@ export let validateRequests = _ => {
     return function (req, res, next) {        
 
         //point to correct validation based on route
-        if(req.originalUrl.indexOf("shoe") != -1)
-            validationRules = shoe[req.method]
-        // put extra validations here
-        else if(req.originalUrl.indexOf("user") != -1)
-            validationRules = user[req.method]
-        else if(req.originalUrl.indexOf("shoeModel") != -1)
+        console.log(req.originalUrl.indexOf("shoeModels"))
+        if(req.originalUrl.indexOf("shoeModels") != -1)
             validationRules = shoeModel[req.method]
+        else if(req.originalUrl.indexOf("users") != -1)
+            validationRules = user[req.method]
+        else if(req.originalUrl.indexOf("shoes") != -1)
+            validationRules = shoe[req.method]
         
         
         const validationSchema = Joi.object(validationRules)

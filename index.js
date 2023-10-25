@@ -1,5 +1,6 @@
 // Import the Express module
 import express, {urlencoded, json} from 'express';
+import cors from "cors";
 
 import { validateRequests } from "./middleware/validation.js";
 
@@ -13,6 +14,7 @@ import shoeModelRoutes from "./routes/shoeModel.js";
 const app = express();
 
 // Create app.use requests here
+app.use(cors()); // Enable all cors requests
 
 app.use(urlencoded({ extended: false })); // To parse the incoming requests with urlencoded payloads. For example, form data
 

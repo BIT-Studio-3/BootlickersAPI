@@ -21,6 +21,7 @@
   "homepage": "https://github.com/BIT-Studio-3/BootlickersAPI#readme",
   "dependencies": {
     "@prisma/client": "^4.16.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "joi": "^17.11.0"
   },

@@ -25,17 +25,15 @@ export default {
             "string.base":"Password should be a string.",
             "any.required":"Password is required."
         }),
-        footHeight: Joi.number().positive().required().messages({
+        footHeight: Joi.number().positive().messages({
             //joi validation here
             "number.base":"Foot height should be a number.",
             "number.positive": "Foot height should be positive.",
-            "any.required":"Foot height is required."
         }),
-        footWidth: Joi.number().positive().required().messages({
+        footWidth: Joi.number().positive().messages({
             //joi validation here
             "number.base":"Foot width should be a number.",
             "number.positive": "Foot width should be positive.",
-            "any.required":"Foot width is required."
         })
     },
     "PUT":{

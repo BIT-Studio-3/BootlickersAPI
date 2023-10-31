@@ -28,7 +28,10 @@ import {
     
         //makes sure the query parameter is in the correct type
         if(req.query.size){
-          req.query.size = parseInt(req.query.size)
+          req.query.size = parseInt(req.query.userId)
+        }
+        if(req.query.userId){
+          req.query.userId = parseInt(req.query.userId)
         }
     
         query.where = req.query;

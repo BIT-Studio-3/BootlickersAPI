@@ -8,17 +8,15 @@ export default {
             "string.email":"Email should be a valid email address.",
             "any.required":"Email is required."
         }),
-        firstName: Joi.string().min(2).required().messages({
+        firstName: Joi.string().min(2).messages({
             //joi validation here
             "string.base":"First name should be a string.",
             "string.min": "First name should have a minimum length of {#limit}",
-            "any.required":"First name is required."
         }),
-        lastName: Joi.string().min(2).required().messages({
+        lastName: Joi.string().min(2).messages({
             //joi validation here
             "string.base":"Last name should be a string.",
             "string.min": "Last name should have a minimum length of {#limit}",
-            "any.required":"Last name is required."
         }),
         password: Joi.string().required().messages({
             //joi validation here

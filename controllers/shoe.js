@@ -33,6 +33,10 @@ import {
         if(req.query.userId){
           req.query.userId = parseInt(req.query.userId)
         }
+        if(req.query.shoeModelId){
+          req.query.shoeModelId = parseInt(req.query.shoeModelId)
+        }
+    
     
         query.where = req.query;
         const shoes = await prisma.shoe.findMany(query);
